@@ -348,8 +348,9 @@ function launchPDF(fileName) {
         if (isMobile && !isLocal) {
             const loc = window.location.href;
             const path = loc.substring(0, loc.lastIndexOf('/') + 1);
+            const cacheBreaker = "&cb=" + new Date().getTime();
             const absolutePdfUrl = path + fileName;
-            url = `https://docs.google.com/gview?embedded=true&url=${encodeURIComponent(absolutePdfUrl)}`;
+            url = `https://docs.google.com/gview?embedded=true&url=${encodeURIComponent(path + fileName)}${cacheBreaker}`;
         } else {
             url = fileName + '#toolbar=0&navpanes=0&view=FitH';
         }
