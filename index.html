@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANARA_LOST_ARCHIVE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="loading">
+
+    <div id="loader">
+        <div class="loader-content">
+            <p>> INITIALIZING_SYSTEM...</p>
+            <p>> DECRYPTING_MANARA_ARCHIVE...</p>
+            <p>> AUTHORIZING...</p>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+        </div>
+    </div>
+
+    <div id="crt-container">
+        <div class="crt-overlay"></div>
+        <div class="scanlines"></div>
+
+        <div class="wrapper">
+            <nav class="system-header">
+                <div class="sys-cluster">
+                    <span class="label">OS:</span> <span class="val">MANARA_CORE_V_0.1</span>
+                </div>
+                <div class="glitch-logo">MANARA_LOST_ARCHIVE</div>
+                <div class="sys-cluster">
+                    <span id="digital-clock">00:00:00</span>
+                    <span class="status-dot"></span>
+                </div>
+            </nav>
+
+            <main class="mainframe-grid">
+                <aside class="side-panel left">
+                    <div class="panel-header">SYSTEM_METRICS</div>
+                    <div class="log-console" id="console-logs"></div>
+                </aside>
+
+                <section class="archive-center">
+                    <div class="table-header">
+                        <span>ID_NPC_9376458822</span>
+                    </div>
+                    
+                    <div class="scroll-area">
+                        <a href="#" class="db-link" onclick="openArchive(event, 'storia01.pdf')">
+                            <div class="db-row" onmouseover="inspect('#01', 'WHO_GAMED_THE_GAME?', 'CORRUPTED_FILE_20', 'storia01_preview.jpg')">
+                                <span>CORRUPTED_FILE_20</span><span>WGTG?</span><span>UNAUTHORIZED</span><span>??/??/??</span>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <aside class="side-panel right">
+                    <div class="panel-header">PREVIEW_MODULE</div>
+                    <div id="inspector-display">
+                        <div class="preview-img-placeholder">
+                            <div class="noise"></div>
+                            <p id="inspect-id">ERROR</p>
+                        </div>
+                        <h4 id="inspect-name">WAITING_SELECTION</h4>
+                        <p id="inspect-type" class="matrix-text">---</p>
+                    </div>
+                </aside>
+            </main>
+
+            <footer class="system-footer">
+                <div class="footer-left">ENCRYPTION_SECURED</div>
+                <div class="footer-right">© 1992_MANARA</div>
+            </footer>
+        </div>
+    </div>
+
+    <div id="pdf-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">ARCHIVE_VIEWER_V.1</span>
+                <span class="close-button" onclick="closeArchive()">&times; [CLOSE]</span>
+            </div>
+            <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
