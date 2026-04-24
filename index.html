@@ -45,11 +45,12 @@
                     </div>
                     
                     <div class="scroll-area">
-                        <a href="#" class="db-link" onclick="openArchive(event, 'storia01.pdf')">
-                            <div class="db-row" onmouseover="inspect('#01', 'WHO_GAMED_THE_GAME?', 'CORRUPTED_FILE_20', 'storia01_preview.jpg')">
-                                <span>CORRUPTED_FILE_20</span><span>WGTG?</span><span>UNAUTHORIZED</span><span>??/??/??</span>
-                            </div>
-                        </a>
+                        <a href="javascript:void(0)" onclick="openStory()">
+    <div class="db-row clickable" onmouseover="inspect('storia01_preview.jpg')">
+        <span>STORY_FILE_01</span><span>WHO_GAMED_THE_GAME?</span><span>TEXT_ARCHIVE</span><span>12/10/92</span>
+    </div>
+</a>
+
                     </div>
                 </section>
 
@@ -73,13 +74,21 @@
         </div>
     </div>
 
-    <div id="pdf-modal" class="modal">
+<div id="text-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="modal-title">ARCHIVE_VIEWER_V.1</span>
-                <span class="close-button" onclick="closeArchive()">&times; [CLOSE]</span>
+                <span class="modal-title">DECRYPTED_DOCUMENT // WHO_GAMED_THE_GAME</span>
+                <span class="close-button" onclick="closeTextArchive()">&times; [CLOSE]</span>
             </div>
-            <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
+            
+            <div id="story-container" class="document-text-area">
+                <div class="story-cover">
+                    <img src="storia01_preview.jpg" alt="ARCHIVE_COVER_V1">
+                </div>
+                
+                <div id="story-body" class="story-body-text">
+                    </div>
+            </div>
         </div>
     </div>
 

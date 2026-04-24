@@ -218,3 +218,39 @@ body {
     }
 }
 /* --- FINE OTTIMIZZAZIONE MOBILE --- */
+
+/* Stile per il lettore di documenti nativo */
+.document-text-area {
+    flex-grow: 1;
+    overflow-y: auto; /* Permette lo scrolling verticale */
+    padding: 20px;
+    background: rgba(0, 10, 0, 0.9); /* Sfondo leggermente verde scuro */
+    border: 1px solid var(--matrix-dark);
+    scrollbar-width: thin;
+    scrollbar-color: var(--matrix-green) transparent;
+}
+
+/* Gestione della copertina nel modal */
+.story-cover {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px dashed var(--matrix-green);
+    padding-bottom: 20px;
+}
+
+.story-cover img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--matrix-green);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+}
+
+/* Stile per il testo della storia */
+.story-body-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--matrix-green);
+    white-space: pre-wrap; /* Mantiene gli a capo del testo originale */
+    max-width: 800px;
+    margin: 0 auto;
+}
