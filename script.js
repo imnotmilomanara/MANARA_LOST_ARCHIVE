@@ -215,17 +215,44 @@ window.addEventListener('load', () => {
 });
 
 // 4. LOGS DI SISTEMA
-const logs = ["RECONSTRUCTING_FRAGMENTS...", "VOICE_ECHO_DETECTED", "SIGNAL_FROM_1992", "DECRYPTING_MEMORIES...", "ARCHIVE_LAYER_7_UNLOCKED"];
+const logs = [
+    "RECONSTRUCTING_FRAGMENTS...", "VOICE_ECHO_DETECTED", "SIGNAL_FROM_1992", 
+    "DECRYPTING_MEMORIES...", "ARCHIVE_LAYER_7_UNLOCKED", "MEMORY_LEAK_DETECTED",
+    "BUFFER_OVERFLOW_WARNING", "KERNEL_PANIC_SECTOR_0", "UNEXPECTED_CORE_DUMP",
+    "SIGNAL_INTERFERENCE_DETECTED", "CRC_CHECK_FAILED", "SEGMENTATION_FAULT_RECOVERED",
+    "UNKNOWN_ENTITY_IN_BUFFER", "DATA_CORRUPTION_BLOCK_4F", "REALITY_SYNC_LOSS_0.4ms",
+    "GHOST_PROCESS_TERMINATED", "ENCRYPTION_LAYER_CRACKED", "SYSTEM_OVERHEATING_IDLE",
+    "PACKET_LOSS_INCREASING", "UNAUTHORIZED_ACCESS_ATTEMPT", "FATAL_ERROR_0x00451",
+    "UNSTABLE_SIGNAL_RECOVERED", "PARALLEL_THREAD_COLLISION", "CACHE_WIPE_IN_PROGRESS",
+    "VOID_POINTER_DEREFERENCE", "IO_DEVICE_TIMEOUT", "INVALID_OPCODE_REJECTED",
+    "EMULATOR_LOOP_DETECTED", "TIME_STAMP_MISMATCH"
+];
+
 const logBox = document.getElementById('console-logs');
+let lastLog = ""; // Per evitare che la stessa frase esca due volte di fila
+
 setInterval(() => {
     if(!logBox) return;
+
+    // Scegliamo una frase a caso che sia diversa dall'ultima uscita
+    let randomLog;
+    do {
+        randomLog = logs[Math.floor(Math.random() * logs.length)];
+    } while (randomLog === lastLog);
+    
+    lastLog = randomLog;
+
     const entry = document.createElement('p');
     entry.className = "log-entry";
     entry.style.cssText = "font-size: 11px; color: #00FF41; margin-bottom: 3px; font-family: monospace;";
-    entry.innerText = `> ${logs[Math.floor(Math.random() * logs.length)]}`;
+    entry.innerText = `> ${randomLog}`;
+    
     logBox.prepend(entry);
-    if(logBox.childNodes.length > 11) logBox.lastChild.remove();
-}, 1500);
+    
+    if(logBox.childNodes.length > 11) {
+        logBox.lastChild.remove();
+    }
+}, 1200); // Ho velocizzato leggermente (da 1500 a 1200) per rendere la cascata più viva
 
 // 5. ISPETTORE ANTEPRIMA
 function inspect(id, name, type, imagePath) {
@@ -378,8 +405,7 @@ window.onclick = (e) => {
 };
 
 // 1. Salviamo il testo della storia in una costante (una scatola che non cambia)
-const STORIA_01 = `--- ARCHIVE_DECRYPTED ---
-
+const STORIA_01 = `
 WHO GAMED THE GAME?
 
 They were just four friends on a lazy Sunday afternoon. 
