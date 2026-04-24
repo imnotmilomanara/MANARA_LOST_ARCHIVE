@@ -338,7 +338,7 @@ function checkAuth() {
     setTimeout(() => {
         if (input.value === SYSTEM_PASSWORD) {
             if(scanner) scanner.style.display = 'none';
-            status.innerText = "ACCESS_GRANTED";
+decodeText(status, "ACCESS_GRANTED");
             SoundEngine.access();
             
             setTimeout(() => {
@@ -349,7 +349,8 @@ function checkAuth() {
                     document.getElementById('floating-stats').style.opacity = '0.8';
                 }
                 if (currentPendingFile !== 'SYSTEM_ROOT') launchPDF(currentPendingFile);
-            }, 800);
+            }, 2000);
+
         } else {
             if(scanner) scanner.style.display = 'none';
             status.innerText = "INVALID_CODE_ACCESS_DENIED";
@@ -524,3 +525,59 @@ window.addEventListener('keydown', (e) => {
         closeTextArchive(); // Chiude il nuovo lettore testi
     }
 });
+
+// Simulatore CPU dinamico nel footer
+setInterval(() => {
+    const cpuSpan = document.getElementById('dynamic-cpu');
+    if (cpuSpan) {
+        // Genera un carico realistico tra il 2% e il 18%
+        const load = Math.floor(Math.random() * 16 + 2);
+        cpuSpan.innerText = `${load}%`;
+    }
+}, 1000); // Si aggiorna ogni secondo
+
+// --- LOGICA DINAMICA AGGIUNTIVA ---
+
+// Funzione che si attiva appena la pagina ha finito di caricare
+window.addEventListener('load', () => {
+    
+    // ORDINE 1: Cambia il numero ID_NPC una sola volta al login
+    const npcElemento = document.getElementById('npc-id-number');
+    if (npcElemento) {
+        const numeroCasuale = Math.floor(Math.random() * 9000000000 + 1000000000);
+        npcElemento.innerText = numeroCasuale;
+    }
+
+    // ORDINE 2: Aggiorna la CPU ogni secondo (1000 millisecondi)
+    setInterval(() => {
+        const cpuElemento = document.getElementById('dynamic-cpu');
+        if (cpuElemento) {
+            const carico = Math.floor(Math.random() * 16 + 2); // Numero tra 2 e 18
+            cpuElemento.innerText = carico + "%";
+        }
+    }, 1000);
+});
+
+// Funzione per l'effetto decodifica (Matrix style)
+function decodeText(element, finalWord, callback) {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#@$%&*";
+    let iterations = 0;
+    
+    const interval = setInterval(() => {
+        element.innerText = finalWord
+            .split("")
+            .map((letter, index) => {
+                if (index < iterations) return finalWord[index];
+                return chars[Math.floor(Math.random() * chars.length)];
+            })
+            .join("");
+
+        if (iterations >= finalWord.length) {
+            clearInterval(interval);
+            // Se esiste una funzione 'callback', eseguila ora!
+            if (callback) callback(); 
+        }
+
+        iterations += 1 / 3;
+    }, 30);
+}

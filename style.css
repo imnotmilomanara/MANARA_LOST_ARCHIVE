@@ -1,8 +1,10 @@
 :root {
     --matrix-green: #00FF41; 
-    --matrix-dark: #003B00;
-    --dark-bg: #000000;
+    --matrix-dark: #001a00; /* Un verde scurissimo per la profondità */
+    --dark-bg: #020202;
     --font-main: 'Courier New', Courier, monospace;
+    /* Questo crea il bagliore dell'immagine che hai postato */
+    --glow: 0 0 5px rgba(0, 255, 65, 0.6), 0 0 10px rgba(0, 255, 65, 0.3);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; cursor: crosshair; }
@@ -13,8 +15,7 @@ body {
     font-family: var(--font-main);
     height: 100vh;
     overflow: hidden;
-    text-shadow: 0 0 5px var(--matrix-green);
-}
+text-shadow: var(--glow);}
 
 #crt-container {
     position: relative;
@@ -28,14 +29,18 @@ body {
 /* CRT EFFECTS */
 .crt-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle, transparent 70%, rgba(0,0,0,0.5) 100%);
+    /* Crea la curvatura del vetro: scuro ai bordi, chiaro al centro */
+    background: radial-gradient(circle, rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 110%);
     pointer-events: none; z-index: 100;
 }
 
 .scanlines {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
-    background-size: 100% 3px;
+    /* Questa tecnica crea la griglia di pixel dell'immagine allegata */
+    background: 
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 3px, 3px 100%;
     pointer-events: none; z-index: 99;
 }
 
@@ -102,6 +107,11 @@ body {
     justify-content: space-between; 
     font-size: 0.7rem; 
     color: var(--matrix-green);
+}
+
+.footer-center {
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
 /* MODAL */
