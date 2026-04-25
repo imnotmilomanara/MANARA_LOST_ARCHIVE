@@ -126,8 +126,34 @@ text-shadow: var(--glow);}
 .modal-header { display: flex; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid var(--matrix-green); margin-bottom: 10px; }
 .close-button { 
     cursor: pointer; 
-    color: var(--matrix-green); /* Ora userà il verde globale del sito */
-    font-weight: bold; 
+    color: var(--matrix-green);
+    font-family: var(--font-main);
+    font-weight: bold;
+    font-size: 14px;
+    
+    /* Crea il quadratino perfetto */
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--matrix-green);
+    
+    /* Centra la X perfettamente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Estetica retro */
+    background: transparent;
+    transition: all 0.1s ease;
+    text-shadow: var(--glow);
+}
+
+.close-button:hover {
+    background: var(--matrix-green);
+    color: #000;
+    text-shadow: none; /* Rimuove il bagliore interno per leggibilità */
+    box-shadow: var(--glow);
+}
+
 }#pdf-viewer { width: 100%; flex-grow: 1; border: none; }
 
 /* AUTH MODAL SPECIFIC */
@@ -247,8 +273,10 @@ text-shadow: var(--glow);}
 .story-cover {
     text-align: center;
     margin-bottom: 30px;
-    border-bottom: 1px dashed var(--matrix-green);
+    /* Rimuovi o commenta la riga border-bottom qui sotto */
+    border-bottom: none; 
     padding-bottom: 20px;
+}
 }
 
 .story-cover img {
@@ -266,4 +294,5 @@ text-shadow: var(--glow);}
     white-space: pre-wrap; /* Mantiene gli a capo del testo originale */
     max-width: 800px;
     margin: 0 auto;
+    text-align: center;
 }
