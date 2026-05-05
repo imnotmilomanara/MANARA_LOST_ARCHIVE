@@ -261,10 +261,13 @@ text-shadow: var(--glow);}
 /* Stile per il lettore di documenti nativo */
 .document-text-area {
     flex-grow: 1;
-    overflow-y: auto; /* Permette lo scrolling verticale */
-    padding: 20px;
-    background: rgba(0, 10, 0, 0.9); /* Sfondo leggermente verde scuro */
+    overflow-y: auto;
+    padding: 15px; /* Ridotto leggermente per mobile */
+    background: rgba(0, 10, 0, 0.9);
     border: 1px solid var(--matrix-dark);
+    
+    /* FIX ZOOM: Impedisce al browser di gestire lo scroll in modo anomalo */
+    -webkit-overflow-scrolling: touch; 
     scrollbar-width: thin;
     scrollbar-color: var(--matrix-green) transparent;
 }
@@ -277,13 +280,14 @@ text-shadow: var(--glow);}
     border-bottom: none; 
     padding-bottom: 20px;
 }
-}
+
 
 .story-cover img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid var(--matrix-green);
-    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+    width: 100%;       /* Occupa tutta la larghezza disponibile */
+    max-width: 400px;  /* Ma non diventare gigante su tablet */
+    height: auto;      /* Mantiene le proporzioni corrette (Aspect Ratio) */
+    display: block;
+    margin: 0 auto;
 }
 
 /* Stile per il testo della storia */
@@ -292,7 +296,9 @@ text-shadow: var(--glow);}
     line-height: 1.6;
     color: var(--matrix-green);
     white-space: pre-wrap; /* Mantiene gli a capo del testo originale */
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+   max-width: 100%; 
+    word-wrap: break-word; /* Spezza le parole se troppo lunghe */
+    overflow-x: hidden;    /* Evita lo scroll orizzontale che causa lo zoom */
+    text-align: left;      /* Più leggibile sui testi lunghi da mobile */
+
 }
