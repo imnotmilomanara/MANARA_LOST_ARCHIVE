@@ -295,10 +295,13 @@ text-shadow: var(--glow);}
     font-size: 1.1rem;
     line-height: 1.6;
     color: var(--matrix-green);
-    white-space: pre-wrap; /* Mantiene gli a capo del testo originale */
-   max-width: 100%; 
-    word-wrap: break-word; /* Spezza le parole se troppo lunghe */
-    overflow-x: hidden;    /* Evita lo scroll orizzontale che causa lo zoom */
-    text-align: left;      /* Più leggibile sui testi lunghi da mobile */
-
+    white-space: pre-wrap; 
+    word-wrap: break-word;
+    overflow-x: hidden;
+    
+    /* MODIFICHE PER CENTRATURA */
+    text-align: center;      /* Centra il contenuto del testo */
+    max-width: 800px;        /* Impedisce al testo di allargarsi troppo su desktop */
+    margin: 0 auto;          /* Centra l'intero blocco di testo nella pagina */
+    padding: 20px;           /* Aggiunge un po' di respiro ai lati */
 }
