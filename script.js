@@ -412,19 +412,15 @@ WHO GAMED THE GAME?
 They were just four friends on a lazy Sunday afternoon. 
 Wandering aimlessly through alleyways and dusty corners of the city, 
 they stumbled upon a thrift store none of them remembered ever seeing before...
-They were just four friends on a lazy Sunday afternoon.
-Wandering aimlessly through alleyways and dusty corners of
-the city, they stumbled upon a thrift store none of them
-remembered ever seeing before.
 The sign above the door had no name, only a symbol, an empty
 square.
 Inside, behind shelves of warped VHS tapes and cracked picture
 frames, they found it.
 A strange game console, unlike anything they'd ever seen.
-Faded plastic, no brand, no markings, just a single cartridge
-already inserted.
-The shopkeeper, a gaunt, silent man, seemed reluctant to let it
-go.
+Faded plastic, no brand, no markings, 
+just a single cartridge already inserted.
+The shopkeeper, a gaunt, silent man, 
+seemed reluctant to let it go.
 “It doesn’t work”
 he mumbled.
 But they insisted, and with a glance that almost seemed like a
@@ -445,7 +441,8 @@ prevent exactly that.
 Each world was filled with misdirections, identity loops, and
 characters that seemed to know more than they should, even
 speaking directly to the players through their avatars.
-The deeper they went, the less they remembered what was real.And the worlds weren't separate.
+The deeper they went, the less they remembered what was real.
+And the worlds weren't separate.
 They began to intersect in strange ways, tunnels from one
 dimension opening into the next.
 One player discovered they could infiltrate another's reality.
@@ -456,8 +453,9 @@ Encouraged it.
 The four friends became competitors.
 Then threats.
 Then strangers.
-ÆNCRYON’s true structure slowly emerged: only one player
-could win, the one who successfully absorbed all four avatars
+ÆNCRYON’s true structure slowly emerged: 
+only one player could win, 
+the one who successfully absorbed all four avatars
 into a single, stable universe.
 A “composite world,” the game called it.
 After the last integration, when one player stood alone in
@@ -473,19 +471,21 @@ What they thought was virtual was real.
 It was revealing them.
 Each world the players had built was real separate universes,
 once isolated, now connected by this artifact.
-And the avatars... weren’t just characters.
-They were consciousnesses from those realities, pulled into
-the game.
+And the avatars... 
+weren’t just characters.
+They were consciousnesses from those realities, 
+pulled into the game.
 Swapped.
-Shifted.Repurposed.
+Shifted.
+Repurposed.
 The act of playing had caused a rupture, an entanglement
 across realities.
 Who gamed the game?
 No one ever asked that question.
-But somewhere, in some unknowable space, someone (or
-something) was watching.
-And perhaps, one day, they would come to reclaim what was
-taken.
+But somewhere, in some unknowable space, 
+someone (or something) was watching.
+And perhaps, one day, 
+they would come to reclaim what was taken.
 [END]
 (game over... insert coin)
 
