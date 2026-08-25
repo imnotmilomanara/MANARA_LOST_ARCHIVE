@@ -45,8 +45,24 @@
 </div>
                     
                     <div class="scroll-area">
-                        <a href="javascript:void(0)" class="db-link" onclick="openStory()">
-<div class="db-row clickable" onmouseover="inspect('STORY_01', 'WHO_GAMED_THE_GAME?', 'TEXT_ARCHIVE', 'storia01_preview.jpg')">        <span>CORRUPTED_FILE_20</span><span>WHO_GAMED_THE_GAME?</span><span>AUTHORIZED</span><span>??/??/??</span>
+<!-- TRACCIA 1 -->
+<a href="javascript:void(0)" class="db-link" onclick="playAudio('p.a.i.n.(unmixed).mp3', 'P.A.I.N.')">
+    <div class="db-row clickable" onmouseover="inspect('AUDIO_01', 'FILE_31', 'P.A.I.N.', 'p.a.i.n..png')">
+        <span>FILE_31</span><span>p.a.i.n.(unmixed).mp3</span><span>AUTHORIZED</span><span>03:24</span>
+    </div>
+</a>
+
+<!-- TRACCIA 2 -->
+<a href="javascript:void(0)" class="db-link" onclick="playAudio('b.l.a.m.e(unmixed).mp3', 'B.L.A.M.E.')">
+    <div class="db-row clickable" onmouseover="inspect('AUDIO_02', 'FILE_41', 'B.L.A.M.E.', 'b.l.a.m.e..png')">
+        <span>FILE_41</span><span>b.l.a.m.e.(unmixed).mp3</span><span>AUTHORIZED</span><span>04:28</span>
+    </div>
+</a>
+
+<!-- TRACCIA 3 -->
+<a href="javascript:void(0)" class="db-link" onclick="playAudio('v.i.l.l.a.i.n.(unmixed).mp3', 'V.I.L.L.A.I.N.')">
+    <div class="db-row clickable" onmouseover="inspect('AUDIO_03', 'FILE_51', 'V.I.L.L.A.I.N.', 'v.i.l.l.a.i.n..png')">
+        <span>FILE_51</span><span>v.i.l.l.a.i.n.(unmixed).mp3</span><span>AUTHORIZED</span><span>04:22</span>
     </div>
 </a>
 
@@ -69,31 +85,18 @@
             <footer class="system-footer">
                 <div class="footer-left">ENCRYPTION_SECURED</div>
                 <div class="footer-center">
-        CPU_USAGE: <span id="dynamic-cpu">0%</span>
-    </div>
+                    CPU_USAGE: <span id="dynamic-cpu">0%</span>
+                </div>
                 <div class="footer-right">© 1992_MANARA</div>
             </footer>
         </div>
     </div>
 
-<div id="text-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="modal-title">DECRYPTED_DOCUMENT // WHO_GAMED_THE_GAME_?</span>
-                <span class="close-button" onclick="closeTextArchive()">X</span>
-            </div>
-            
-            <div id="story-container" class="document-text-area">
-                <div class="story-cover">
-                    <img src="storia01_preview.jpg" alt="ARCHIVE_COVER_V1">
-                </div>
-                
-                <div id="story-body" class="story-body-text">
-                    </div>
-            </div>
-        </div>
-    </div>
+    <!-- 1. PRIMA CREIAMO IL LETTORE AUDIO -->
+    <audio id="system-audio-player" style="display:none;"></audio>
 
+    <!-- 2. POI CARICHIAMO LO SCRIPT CHE LO CONTROLLA -->
     <script src="script.js"></script>
+
 </body>
 </html>

@@ -254,25 +254,16 @@ setInterval(() => {
     }
 }, 1200); // Ho velocizzato leggermente (da 1500 a 1200) per rendere la cascata più viva
 
-// 5. ISPETTORE ANTEPRIMA
+/// 5. ISPETTORE ANTEPRIMA
 function inspect(id, name, type, imagePath) {
     const inspectId = document.getElementById('inspect-id');
     const inspectName = document.getElementById('inspect-name');
-    const inspectType = document.getElementById('inspect-type'); // <--- AGGIUNTO
+    const inspectType = document.getElementById('inspect-type'); 
     const placeholder = document.querySelector('.preview-img-placeholder');
 
     if(inspectId) inspectId.innerText = id;
     if(inspectName) inspectName.innerText = name;
-    
-    // Gestione della riga sotto il titolo
-    if(inspectType) {
-        // Se il file è quello della storia, forza la scritta CORRUPTED_FILE_20
-        if (name === "WHO_GAMED_THE_GAME?") {
-            inspectType.innerText = "CORRUPTED_FILE_20";
-        } else {
-            inspectType.innerText = type;
-        }
-    }
+    if(inspectType) inspectType.innerText = type;
 
     if(placeholder) {
         if(imagePath) {
@@ -285,7 +276,6 @@ function inspect(id, name, type, imagePath) {
         }
     }
 }
-
 // 6. AUTENTICAZIONE E PDF
 const SYSTEM_PASSWORD = "(312)-555-0690";
 let currentPendingFile = "";
@@ -405,124 +395,29 @@ window.onclick = (e) => {
     if (e.target.id === 'auth-modal' && isSystemUnlocked) document.getElementById('auth-modal').style.display = 'none';
 };
 
-// 1. Salviamo il testo della storia in una costante (una scatola che non cambia)
-const STORIA_01 = `
-WHO GAMED THE GAME?
+// --- LOGICA RIPRODUZIONE AUDIO ---
+const audioPlayer = document.getElementById('system-audio-player');
+let currentTrack = null;
 
-They were just four friends on a lazy Sunday afternoon. 
-Wandering aimlessly through alleyways and dusty corners of the city, 
-they stumbled upon a thrift store none of them remembered ever seeing before...
-The sign above the door had no name, only a symbol, an empty
-square.
-Inside, behind shelves of warped VHS tapes and cracked picture
-frames, they found it.
-A strange game console, unlike anything they'd ever seen.
-Faded plastic, no brand, no markings, 
-just a single cartridge already inserted.
-The shopkeeper, a gaunt, silent man, 
-seemed reluctant to let it go.
-“It doesn’t work”
-he mumbled.
-But they insisted, and with a glance that almost seemed like a
-warning, he finally gave in.
-Back at home, they plugged it into an old television.
-No startup screen, no menu.
-Just a name appeared in silence:
-ÆNCRYON.
-Then the world opened up.
-It was a role-playing game, or so it seemed.
-Each of them had to choose an avatar and construct a world
-from scratch.
-The objective, according to the game's cryptic system prompts,
-was simple:
-"Find yourself"
-But it quickly became clear that the game’s true purpose was to
-prevent exactly that.
-Each world was filled with misdirections, identity loops, and
-characters that seemed to know more than they should, even
-speaking directly to the players through their avatars.
-The deeper they went, the less they remembered what was real.
-And the worlds weren't separate.
-They began to intersect in strange ways, tunnels from one
-dimension opening into the next.
-One player discovered they could infiltrate another's reality.
-With the right series of tasks, they could even steal the
-identity of another avatar, absorbing it into their own world.
-The game rewarded this behavior.
-Encouraged it.
-The four friends became competitors.
-Then threats.
-Then strangers.
-ÆNCRYON’s true structure slowly emerged: 
-only one player could win, 
-the one who successfully absorbed all four avatars
-into a single, stable universe.
-A “composite world,” the game called it.
-After the last integration, when one player stood alone in
-their now totalized world, the screen began to flicker, as if
-responding to something.
-A map appeared.
-It showed thousands of other coordinates, other players, other
-consoles, other realities.
-The screen zoomed out again.
-What they thought was a game was a system.
-What they thought was virtual was real.
-ÆNCRYON wasn't creating worlds.
-It was revealing them.
-Each world the players had built was real separate universes,
-once isolated, now connected by this artifact.
-And the avatars... 
-weren’t just characters.
-They were consciousnesses from those realities, 
-pulled into the game.
-Swapped.
-Shifted.
-Repurposed.
-The act of playing had caused a rupture, an entanglement
-across realities.
-Who gamed the game?
-No one ever asked that question.
-But somewhere, in some unknowable space, 
-someone (or something) was watching.
-And perhaps, one day, 
-they would come to reclaim what was taken.
-[END]
-(game over... insert coin)
+function playAudio(trackUrl, trackName) {
+    if (typeof SoundEngine !== 'undefined') SoundEngine.click();
 
-`;
-
-// 2. Funzione per APRIRE la storia
-function openStory() {
-    const modal = document.getElementById('text-modal');
-    const body = document.getElementById('story-body');
-    
-    if (modal && body) {
-        // Inseriamo il testo nella scatola HTML
-        body.innerText = STORIA_01; 
-        
-        // Mostriamo il modal
-        modal.style.display = 'block';
-        
-        // Effetto sonoro (se il tuo SoundEngine è attivo)
-        if (typeof SoundEngine !== 'undefined') SoundEngine.click();
-        
-        // Reset dello scroll: ogni volta che apri, riparte dall'alto
-        document.getElementById('story-container').scrollTop = 0;
+    if (currentTrack === trackUrl && !audioPlayer.paused) {
+        audioPlayer.pause();
+        console.log("Sistema: Audio in pausa");
+    } else {
+        if (currentTrack !== trackUrl) {
+            audioPlayer.src = trackUrl;
+            currentTrack = trackUrl;
+        }
+        audioPlayer.play();
+        console.log("Sistema: Riproduzione di " + trackName);
     }
 }
 
-// 3. Funzione per CHIUDERE la storia
-function closeTextArchive() {
-    const modal = document.getElementById('text-modal');
-    if (modal) {
-        modal.style.display = 'none';
-        if (typeof SoundEngine !== 'undefined') SoundEngine.beep();
-    }
-}
 window.addEventListener('keydown', (e) => { 
     if (e.key === "Escape") {
-        closeArchive();     // Chiude il vecchio PDF (se esiste ancora)
-        closeTextArchive(); // Chiude il nuovo lettore testi
+        closeArchive(); // Chiude il PDF se aperto
     }
 });
 
